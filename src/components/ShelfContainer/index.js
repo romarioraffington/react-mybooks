@@ -12,22 +12,20 @@ export default class ShelfContainer extends Component {
 
   render() {
     const { books } = this.props;
-    // TODO: Organize Book by Shelf
-    // TODO: Pass the book as props to the correct Shelf
     return (
       <div className="list-books-content">
         <div>
           <Shelf
             title='Currently Reading'
-            books={books}
+            books={books.filter(b => b.shelf === 'currentlyReading')}
           />
           <Shelf
             title='Want to Read'
-            books={books}
+            books={books.filter(b => b.shelf === 'wantToRead')}
           />
           <Shelf
             title='Read'
-            books={books}
+            books={books.filter(b => b.shelf === 'read')}
           />
         </div>
       </div>
