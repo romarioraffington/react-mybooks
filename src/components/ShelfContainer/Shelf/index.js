@@ -9,17 +9,21 @@ export default class Shelf extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
+    onShelfChange: PropTypes.func.isRequired,
   }
 
   render() {
-    const { title, books } = this.props;
+    const { title, books, onShelfChange } = this.props;
 
     return (
       <div>
         <div className="bookshelf">
           <h2 className="bookshelf-title">{title}</h2>
           <div className="bookshelf-books">
-            <BookList books={books} />
+            <BookList 
+              onShelfChange={onShelfChange}
+              books={books} 
+            />
           </div>
         </div>
       </div>
