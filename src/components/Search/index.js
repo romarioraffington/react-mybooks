@@ -20,8 +20,16 @@ export default class Search extends Component {
     this.setState({ query: query.trim() });
 
     // Fetch books based on query
-    BooksAPI.search(query.trim()).then(books => {
-      this.setState({ results: books })
+    BooksAPI.search(query.trim()).then(resp => {
+      let results = [];
+
+      // Only set state if resp is an array
+      // since the endpoint returns undefined 
+      // and an error object as well
+      if (Array.isArray(resp)) {
+        results = resp;
+      }
+      this.setState({ results });
     });
   }
 
