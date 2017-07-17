@@ -20,11 +20,32 @@ export default class App extends Component {
 
   shelfChange = (book, shelf) => {
     BooksAPI.update(book, shelf).then(data => {
-      this.setState(({ books }) => ({
-        books: books.filter(b =>
-          b.id === book.id ? b.shelf = shelf : b
-        )
-      }));
+      this.setState(({ books }) => {
+
+        // Check if book was added from
+        // the search screen
+        const isPresent = books.find(b => (
+          b.id === book.id
+        ));
+
+        // If book was previously selected
+        // find book and only change the shelf
+        if (!! isPresent) {
+          return {
+            books: books.filter(b =>
+              b.id === book.id ? b.shelf = shelf : b
+            )
+          }
+        }
+
+        // If books was not previously selected,
+        // update shelf and add it to the list
+        return {
+          books: books.concat(
+            Object.assign({}, book, { shelf: shelf })
+          )
+        }
+      });
     });
   }
 
