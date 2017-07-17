@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Search extends Component {
+  static propTypes = {
+    onBackClick: PropTypes.func.isRequired,
+  }
+  
   render() {
     const { onBackClick } = this.props;
     return (
       <div>
         <div className="search-books">
           <div className="search-books-bar">
-            <a className="close-search" onClick={() => {} }>Close</a>
+            <a className="close-search" onClick={() => onBackClick() }>Close</a>
             <div className="search-books-input-wrapper">
               <input type="text" placeholder="Search by title or author" />
             </div>

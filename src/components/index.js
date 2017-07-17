@@ -47,7 +47,7 @@ export default class App extends Component {
           </div>
         )} />
         <Route path='/search' render={({ history }) => (
-          <Search/>
+          <Search onBackClick={() => history.push('/') }/>
         )}
         />
       </div>
