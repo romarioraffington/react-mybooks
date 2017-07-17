@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Our Dependencies
-import BookList from './BookList';
+import BookList from '../../BookList';
 
 export default class Shelf extends Component {
   static propTypes = {
