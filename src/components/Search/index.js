@@ -19,7 +19,7 @@ export default class Search extends Component {
 
   updateQuery = (query) => {
     // Update query state
-    this.setState({ query: query.trim() });
+    this.setState({ query });
 
     // Fetch books based on query
     BooksAPI.search(query.trim()).then(resp => {
