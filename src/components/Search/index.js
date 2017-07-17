@@ -9,6 +9,7 @@ import BookList from '../BookList';
 export default class Search extends Component {
   static propTypes = {
     onBackClick: PropTypes.func.isRequired,
+    onShelfChange: PropTypes.func.isRequired,
   }
 
   state = {
@@ -36,7 +37,7 @@ export default class Search extends Component {
 
   render() {
     const { query, results } = this.state;
-    const { onBackClick } = this.props;
+    const { onBackClick, onShelfChange } = this.props;
 
     return (
       <div>
@@ -55,6 +56,7 @@ export default class Search extends Component {
           <div className="search-books-results">
             <ol className="books-grid">
               <BookList 
+                onShelfChange={onShelfChange}
                 books={results}
               />
             </ol>

@@ -47,7 +47,10 @@ export default class App extends Component {
           </div>
         )} />
         <Route path='/search' render={({ history }) => (
-          <Search onBackClick={() => history.push('/') }/>
+          <Search 
+            onShelfChange={this.shelfChange}
+            onBackClick={() => history.push('/') }
+          />
         )}
         />
       </div>
