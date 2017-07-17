@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // Our Dependencies
 import * as BooksAPI from '../../BooksAPI';
+import BookList from '../BookList';
 
 export default class Search extends Component {
   static propTypes = {
@@ -53,7 +54,9 @@ export default class Search extends Component {
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-              { console.log(results) }
+              <BookList 
+                books={results}
+              />
             </ol>
           </div>
         </div>
