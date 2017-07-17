@@ -33,7 +33,7 @@ export default class Search extends Component {
       <div>
         <div className="search-books">
           <div className="search-books-bar">
-            <a className="close-search" onClick={() => onBackClick() }>Close</a>
+            <a className="close-search" onClick={() => onBackClick()}>Close</a>
             <div className="search-books-input-wrapper">
               <input
                 type="text"
