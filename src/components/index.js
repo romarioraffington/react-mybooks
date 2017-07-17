@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // Our Dependencies
 import ShelfContainer from './ShelfContainer';
 import * as BooksAPI from '../BooksAPI';
-import * as books from './data.json';
 
 export default class App extends Component {
   state = {
@@ -12,8 +11,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // TODO: Get the data from the API
-    this.setState({ books: books.books });
+    BooksAPI.getAll().then(books => {
+      this.setState({ books });
+    });
   }
 
   shelfChange = (book, shelf) => {
