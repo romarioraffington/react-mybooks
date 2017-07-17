@@ -1,5 +1,9 @@
+// External Dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+// Our Dependencies
+import * as BooksAPI from '../../BooksAPI';
 
 export default class Search extends Component {
   static propTypes = {
@@ -8,10 +12,21 @@ export default class Search extends Component {
 
   state = {
     query: '',
+    results: [],
+  }
+
+  updateQuery = (query) => {
+    // Update query state
+    this.setState({ query: query.trim() });
+
+    // Fetch books based on query
+    BooksAPI.search(query.trim()).then(books => {
+      this.setState({ results: books })
+    });
   }
 
   render() {
-    const { query } = this.state;
+    const { query, results } = this.state;
     const { onBackClick } = this.props;
 
     return (
@@ -24,12 +39,14 @@ export default class Search extends Component {
                 type="text"
                 placeholder="Search by title or author"
                 value={query}
-                onChange={(e) => {}}
+                onChange={(e) => this.updateQuery(e.target.value)}
               />
             </div>
           </div>
           <div className="search-books-results">
-            <ol className="books-grid"></ol>
+            <ol className="books-grid">
+              { console.log(results) }
+            </ol>
           </div>
         </div>
       </div>
