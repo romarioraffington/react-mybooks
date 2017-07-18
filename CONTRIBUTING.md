@@ -1,3 +1,19 @@
-# How to contribute
+# Contributing
 
-The files in this repository are used in the course videos and are the starting point for all students. Because we want all students to have the same experience going through course, if your pull request alters any of the core files, then it (most likely) will _not_ be merged into the project.
+I would love to have you contribute to this project!
+
+## How To Contribute
+
+* check the [existing issues](https://github.com/romarioraffington/react-myreads/issues) to see if one matches the change you want to add
+* fork this project
+* create a descriptive branch name
+* make all changes on this branch
+* push this branch to your fork
+* submit a pull request
+
+## Best Practices
+
+Make sure to follow these conventions:
+
+* commit messages must start with a capital
+* commit message should answer this question: `This commit will...`
