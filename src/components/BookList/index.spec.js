@@ -1,6 +1,6 @@
 // External Dependencies
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
@@ -34,7 +34,7 @@ describe('BookList', () => {
   describe('pass in an array of books to books props', () => {
     const books = generateBookList();
     beforeEach(() => {
-      wrapper = mount(
+      wrapper = shallow(
         <BookList 
           books={books}
           onShelfChange={onShelfChange}
