@@ -6,7 +6,12 @@
     "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "chai": "^4.1.0",
+    "chai-enzyme": "^0.8.0",
+    "enzyme": "^2.9.1",
+    "faker": "^4.1.0",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
