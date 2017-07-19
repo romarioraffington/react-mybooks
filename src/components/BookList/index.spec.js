@@ -2,9 +2,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-
 // Our Dependencies
 import BookList from './index';
 import { expect } from '../../util/chai';
