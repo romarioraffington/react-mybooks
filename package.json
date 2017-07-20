@@ -8,6 +8,7 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "chai-enzyme": "^0.8.0",
+    "coveralls": "^2.13.1",
     "enzyme": "^2.9.1",
     "faker": "^4.1.0",
     "react-scripts": "0.9.5",
@@ -17,7 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "coverage": "npm test -- --coverage  --collectCoverageFrom=src/components/**/**/*.js",
+    "coverage": "npm test -- --coverage --collectCoverageFrom=src/components/**/**/*.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "eject": "react-scripts eject"
   }
 }
