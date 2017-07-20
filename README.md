@@ -21,13 +21,13 @@ npm test
 ## Running Coverage
 
 ```shell
-npm coverage
+npm run coverage
 ```
 
 ## Building the Project
 
 ```shell
-npm build
+npm run build
 ```
 
 ## Important
