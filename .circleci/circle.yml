@@ -18,6 +18,14 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: coverage
-          command: npm run coverage
+    test:
+        docker:
+        - image:  circleci/node:6.11.0
+        steps:
+            - checkout
+            - run:
+                name: test-and-coverage
+                command: npm run coverage
+            - store_artifacts:
+                path: coverage
+                prefix: coverage
