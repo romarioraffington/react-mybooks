@@ -19,6 +19,7 @@ export default class App extends Component {
   }
 
   shelfChange = (book, shelf) => {
+    // istanbul ignore next
     BooksAPI.update(book, shelf).then(data => {
       this.setState(({ books }) => {
 
