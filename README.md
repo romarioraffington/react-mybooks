@@ -7,27 +7,27 @@
 ## Getting Started
 
 ```shell
-git clone https://github.com/romarioraffington/react-myreads.git
-npm install
-npm start
+$ git clone https://github.com/romarioraffington/react-myreads.git
+$ npm install
+$ npm start
 ```
 
 ## Running Tests
 
 ```shell
-npm test
+$ npm test
 ```
 
 ## Running Coverage
 
 ```shell
-npm run coverage
+$ npm run coverage
 ```
 
 ## Building the Project
 
 ```shell
-npm run build
+$ npm run build
 ```
 
 ## Important
