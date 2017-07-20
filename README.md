@@ -1,8 +1,8 @@
-# MyReads :books:
+# MyReads :books:  [![CircleCI](https://circleci.com/gh/romarioraffington/react-mybooks.svg?style=svg)](https://circleci.com/gh/romarioraffington/react-mybooks)
+
 
  MyReads is a bookshelf app that allows users to select and categorize books they have read, are currently reading, or want to read. Users can also search for books and add books to their bookshelf. The project is build using React and data is pesisted by the [backend server](https://reactnd-books-api.udacity.com).
 
- [![CircleCI](https://circleci.com/gh/romarioraffington/react-mybooks.svg?style=svg)](https://circleci.com/gh/romarioraffington/react-mybooks)
 
 ## Getting Started
 
