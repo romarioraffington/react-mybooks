@@ -1,6 +1,23 @@
-machine:
-  node:
-    version: 6.0.0
-test:
-  override:
-    - npm test -- --coverage
+version: 2
+jobs:
+  build:
+    working_directory: ~/react-mybooks
+    docker:
+      - image: circleci/node:6.11.0
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: npm-install
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: coverage
+          command: npm run coverage
