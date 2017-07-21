@@ -56,6 +56,9 @@ export default class App extends Component {
         <Route exact path='/' render={({ history }) => (
           <div className="list-books">
             <div className="list-books-title">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/romarioraffington/react-mybooks">
+                <div className="fork-me-ribbon"></div>
+              </a>
               <h1>My<span>Reads</span></h1>
             </div>
             <ShelfContainer

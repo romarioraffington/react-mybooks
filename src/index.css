@@ -126,7 +126,7 @@ body {
   width: 60px;
   height: 60px;
   background: white;
-  background-image: url(/static/media/arrow-back.3687aa98.svg);
+  background-image: url('./icons/arrow-back.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 28px;
@@ -183,7 +183,7 @@ body {
   height: 30px;
   border-radius: 50%;
   background: rgba(130, 124, 118, 0.95);
-  background-image: url(/static/media/arrow-drop-down.78c6f53b.svg);
+  background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
@@ -212,4 +212,13 @@ body {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+.fork-me-ribbon {
+  background-image: url('./icons/fork-me-ribbon.svg');
+  width: 100px;
+  height: 100px;
+  right: 0;
+  top: 0px;
+  position: absolute;
 }
