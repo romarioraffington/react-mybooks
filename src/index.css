@@ -43,9 +43,16 @@ body {
 .list-books-title h1 span {
   text-decoration: underline
 }
+
 .list-books-content {
-  padding: 50px 200px;
+  padding: 50px 15%;
   flex: 1;
+}
+
+@media (max-width: 960px) {
+  .list-books-content {
+    padding: 50px 10%;
+  }
 }
 
 .bookshelf {
