@@ -56,7 +56,7 @@ export default class App extends Component {
         <Route exact path='/' render={({ history }) => (
           <div className="list-books">
             <div className="list-books-title">
-              <h1>MyReads</h1>
+              <h1>My<span>Reads</span></h1>
             </div>
             <ShelfContainer
               books={this.state.books}
