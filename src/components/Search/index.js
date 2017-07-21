@@ -47,7 +47,7 @@ export default class Search extends Component {
             <div className="search-books-input-wrapper">
               <input
                 type="text"
-                placeholder="Search by title or author"
+                placeholder="Search by Title or Author"
                 value={query}
                 onChange={(e) => this.updateQuery(e.target.value)}
               />
