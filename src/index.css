@@ -87,6 +87,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 28px;
+  border-bottom: 1px solid rgba(213, 216, 223, 0.73);
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   font-size: 0;
 }
@@ -100,31 +101,36 @@ body {
   left: 0;
   z-index: 5;
   display: flex;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.12);
 }
 .search-books-input-wrapper {
   flex: 1;
-  background: #e9e;
 }
 .search-books-bar input {
   width: 100%;
-  padding: 15px 10px;
-  font-size: 1.25em;
+  padding: 16px 10px;
+  font-size: 1.1em;
   border: none;
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
   outline: none;
+  opacity: 0.6;
+  font-weight: 500;
 }
 
 .close-search {
   display: block;
+  cursor: pointer;
   top: 20px;
   left: 15px;
-  width: 50px;
-  height: 53px;
+  width: 60px;
+  height: 60px;
   background: white;
-  background-image: url('./icons/arrow-back.svg');
+  background-image: url(/static/media/arrow-back.3687aa98.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 28px;
+  opacity: 0.5;
   font-size: 0;
 }
 
