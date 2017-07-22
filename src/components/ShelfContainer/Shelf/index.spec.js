@@ -20,6 +20,7 @@ describe('Shelf', () => {
         title={title}
         books={books}
         isFetching={false}
+        isUpdatingShelf={false}
         onShelfChange={onShelfChange}
       />
     )

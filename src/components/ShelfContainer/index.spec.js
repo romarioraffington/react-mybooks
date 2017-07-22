@@ -18,6 +18,7 @@ describe('ShelfContainer', () => {
       <ShelfContainer
         books={books}
         isFetching={false}
+        isUpdatingShelf={false}
         onShelfChange={onShelfChange}
       />
     )
