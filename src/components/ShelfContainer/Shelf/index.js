@@ -19,19 +19,17 @@ export default class Shelf extends Component {
 
     return (
       <div>
-        {books.length !==0 && (
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">{title}</h2>
-            <div className="bookshelf-books">
-              <div className={ isUpdatingShelf ? "animated shelf-change-loader": "" }></div>
-                <BookList 
-                  onShelfChange={onShelfChange} 
-                  books={books} 
-                  isFetching={isFetching}
-                />
-            </div>
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">{title}</h2>
+          <div className="bookshelf-books">
+            <div className={isUpdatingShelf ? "animated shelf-change-loader" : ""}></div>
+            <BookList
+              onShelfChange={onShelfChange}
+              books={books}
+              isFetching={isFetching}
+            />
           </div>
-        )}
+        </div>
       </div>
     )
   }
