@@ -19,6 +19,7 @@ describe('Shelf', () => {
       <Shelf
         title={title}
         books={books}
+        isFetching={false}
         onShelfChange={onShelfChange}
       />
     )

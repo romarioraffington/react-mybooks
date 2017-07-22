@@ -23,6 +23,7 @@ describe('Search', () => {
     wrapper = shallow(
       <Search
         onBackClick={onBackClick}
+        isFetching={false}
         onShelfChange={onShelfChange}
       />
     )

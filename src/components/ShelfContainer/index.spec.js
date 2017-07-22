@@ -17,6 +17,7 @@ describe('ShelfContainer', () => {
     wrapper = shallow(
       <ShelfContainer
         books={books}
+        isFetching={false}
         onShelfChange={onShelfChange}
       />
     )

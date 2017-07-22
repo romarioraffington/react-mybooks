@@ -15,6 +15,7 @@ describe('BookList', () => {
     wrapper = shallow(
       <BookList 
         books={[]}
+        isFetching={false}
         onShelfChange={onShelfChange}
       />
     )
@@ -34,6 +35,7 @@ describe('BookList', () => {
       wrapper = shallow(
         <BookList 
           books={books}
+          isFetching={false}
           onShelfChange={onShelfChange}
       />
       )
