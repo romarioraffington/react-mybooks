@@ -13,7 +13,7 @@ export default class BookList extends Component {
     return (
       <ol className="books-grid">    
         { isFetching ? 
-          <div className="is-loading-shelf">Loading</div> : (
+          <li className="is-loading-shelf">Loading</li> : (
             books.length > 0 ? (   
               books.map(book => (
                 <li key={book.id}>
