@@ -8,6 +8,7 @@ export default class BookList extends Component {
     onShelfChange: PropTypes.func.isRequired,
   }
 
+  // TODO: Break up components in multiple stateless components
   render() {
     const { books, isFetching, onShelfChange } = this.props;
     return (
@@ -37,9 +38,11 @@ export default class BookList extends Component {
               ))
             ) : (
               <li>
-                <h2 className="shelf-empty-message"> 
-                  Add 📚 to this shelf 🤓 
-                </h2>
+                { window.location.pathname === '/' && (
+                  <h2 className="shelf-empty-message"> 
+                    Add 📚 to this shelf 🤓 
+                  </h2>
+                )}
               </li>
             ) 
         )}
