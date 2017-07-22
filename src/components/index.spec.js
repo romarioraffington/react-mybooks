@@ -12,7 +12,7 @@ import { generateBookList } from '../util/testData';
 // Mock API calls
 jest.mock('../BooksAPI');
 
-describe.only('ShelfContainer',  () => {
+describe('ShelfContainer',  () => {
   let wrapper;
   const books = generateBookList();
   
