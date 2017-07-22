@@ -21,10 +21,9 @@ export default class App extends Component {
   }
 
   shelfChange = (book, shelf) => {
-  
-    // istanbul ignore next
     this.setState({ isUpdatingShelf: true });
-
+    
+    // istanbul ignore next
     BooksAPI.update(book, shelf).then(data => {
       this.setState(({ books }) => {
 
@@ -59,6 +58,7 @@ export default class App extends Component {
 
   render() {
     const { books, isFetching, isUpdatingShelf } = this.state;
+      // istanbul ignore next
     return (
       <div className="app">
         <Route exact path='/' render={({ history }) => (
