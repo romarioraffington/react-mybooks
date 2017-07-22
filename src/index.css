@@ -57,6 +57,7 @@ body {
 
 .bookshelf {
   margin: 0 10px 20px;
+  position: relative;
 }
 
 @media (min-width: 600px) {
@@ -238,4 +239,31 @@ body {
   right: 0;
   top: 0px;
   position: absolute;
+}
+
+/* shelf change loader  */
+.animated {
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+}
+
+.shelf-change-loader {
+  animation-name: horizontalProgressBar;
+  animation-timing-function: ease-in; 
+  background: rgba(130, 124, 118, 0.95);;
+  height: 3px;
+  width: 3px;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  z-index: 9999;
+}
+
+@keyframes horizontalProgressBar
+{
+  0%   {width: 0%;}
+  25%  {width: 22%;}
+  50%  {width: 55%;}
+  75%  {width: 83%;}
+  100% {width:100%;}
 }

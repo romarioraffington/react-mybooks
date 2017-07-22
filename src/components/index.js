@@ -11,6 +11,7 @@ export default class App extends Component {
   state = {
     books: [],
     isFetching: true,
+    isUpdatingShelf: false,
   }
 
   componentDidMount() {
@@ -20,7 +21,10 @@ export default class App extends Component {
   }
 
   shelfChange = (book, shelf) => {
+  
     // istanbul ignore next
+    this.setState({ isUpdatingShelf: true });
+
     BooksAPI.update(book, shelf).then(data => {
       this.setState(({ books }) => {
 
@@ -34,6 +38,7 @@ export default class App extends Component {
         // find book and only change the shelf
         if (!! isPresent) {
           return {
+            isUpdatingShelf: false,
             books: books.filter(b =>
               b.id === book.id ? b.shelf = shelf : b
             )
@@ -43,6 +48,7 @@ export default class App extends Component {
         // If books was not previously selected,
         // update shelf and add it to the list
         return {
+          isUpdatingShelf: false,
           books: books.concat(
             Object.assign({}, book, { shelf: shelf })
           )
@@ -52,7 +58,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { books, isFetching } = this.state;
+    const { books, isFetching, isUpdatingShelf } = this.state;
     return (
       <div className="app">
         <Route exact path='/' render={({ history }) => (
@@ -66,6 +72,7 @@ export default class App extends Component {
             <ShelfContainer
               books={books}
               isFetching={isFetching}
+              isUpdatingShelf={isUpdatingShelf}
               onShelfChange={this.shelfChange} />
             <div className="open-search">
               <a onClick={() => history.push('/search')}>
