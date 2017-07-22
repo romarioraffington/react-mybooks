@@ -34,4 +34,27 @@ describe('Shelf', () => {
     const titleWrapper = wrapper.find('.bookshelf-title').first();
     expect(titleWrapper).to.have.text(title);
   });
+  
+  it('should not render shelf change loader', () => {
+    const shelfChangeLoader = wrapper.find('.shelf-change-loader');
+    expect(shelfChangeLoader).to.not.be.present()
+  });
+
+  describe('when updating a books shelf status', () => {
+    wrapper = shallow(
+      <Shelf
+        title={title}
+        books={books}
+        isFetching={false}
+        isUpdatingShelf={false}
+        onShelfChange={onShelfChange}
+      />
+    )
+
+    it('should render shelf change loader', () => {
+      const shelfChangeLoader = wrapper.find('.shelf-change-loader').first();
+      expect(shelfChangeLoader).to.be.present()
+    });
+  })
+
 });
