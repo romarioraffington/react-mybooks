@@ -20,7 +20,9 @@ export default class App extends Component {
     });
   }
 
-  shelfChange = (book, shelf) => {
+  
+  shelfChange = (book, shelf) => { 
+    // istanbul ignore next
     this.setState({ isUpdatingShelf: true });
     
     // istanbul ignore next
