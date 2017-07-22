@@ -26,7 +26,7 @@ describe('BookList', () => {
   });
 
   it('should not render any books', () => {
-    expect(wrapper).to.have.exactly(0).descendants('li');
+    expect(wrapper).to.have.exactly(0).descendants('.book');
   });
 
   describe('pass in an array of books to books props', () => {
