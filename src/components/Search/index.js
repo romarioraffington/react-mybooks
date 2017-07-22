@@ -9,6 +9,7 @@ import BookList from '../BookList';
 export default class Search extends Component {
   static propTypes = {
     onBackClick: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool.isRequired,
     onShelfChange: PropTypes.func.isRequired,
   }
 
@@ -37,7 +38,7 @@ export default class Search extends Component {
 
   render() {
     const { query, results } = this.state;
-    const { onBackClick, onShelfChange } = this.props;
+    const { onBackClick, onShelfChange, isFetching } = this.props;
 
     return (
       <div>
@@ -58,6 +59,7 @@ export default class Search extends Component {
               <BookList 
                 onShelfChange={onShelfChange}
                 books={results}
+                isFetching={isFetching}
               />
             </ol>
           </div>

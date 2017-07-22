@@ -9,11 +9,12 @@ export default class Shelf extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
     onShelfChange: PropTypes.func.isRequired,
   }
 
   render() {
-    const { title, books, onShelfChange } = this.props;
+    const { title, books, isFetching, onShelfChange } = this.props;
 
     return (
       <div>
@@ -23,6 +24,7 @@ export default class Shelf extends Component {
             <BookList 
               onShelfChange={onShelfChange}
               books={books} 
+              isFetching={isFetching}
             />
           </div>
         </div>

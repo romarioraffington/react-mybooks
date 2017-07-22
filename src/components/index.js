@@ -10,11 +10,12 @@ import * as BooksAPI from '../BooksAPI';
 export default class App extends Component {
   state = {
     books: [],
+    isFetching: true,
   }
 
   componentDidMount() {
     BooksAPI.getAll().then(books => {
-      this.setState({ books });
+      this.setState({ books, isFetching: false });
     });
   }
 
@@ -51,6 +52,7 @@ export default class App extends Component {
   }
 
   render() {
+    const { books, isFetching } = this.state;
     return (
       <div className="app">
         <Route exact path='/' render={({ history }) => (
@@ -62,7 +64,8 @@ export default class App extends Component {
               <h1>My<span>Reads</span></h1>
             </div>
             <ShelfContainer
-              books={this.state.books}
+              books={books}
+              isFetching={isFetching}
               onShelfChange={this.shelfChange} />
             <div className="open-search">
               <a onClick={() => history.push('/search')}>
@@ -74,6 +77,7 @@ export default class App extends Component {
         <Route path='/search' render={({ history }) => (
           <Search 
             onShelfChange={this.shelfChange}
+            isFetching={isFetching}
             onBackClick={() => history.push('/') }
           />
         )}
