@@ -29,6 +29,10 @@ describe('BookList', () => {
     expect(wrapper).to.have.exactly(0).descendants('.book');
   });
 
+  it('should render the shelf empty message', () => {
+    expect(wrapper).to.have.exactly(1).descendants('.shelf-empty-message');
+  });
+
   describe('pass in an array of books to books props', () => {
     const books = generateBookList();
     beforeEach(() => {
