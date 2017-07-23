@@ -71,14 +71,15 @@ export default class Search extends Component {
               was searched for show the following
              */}
 
-             { !!results.length && ( 
-              <ol className="books-grid">
-                <BookList 
-                  onShelfChange={onShelfChange}
-                  books={results}
-                  isFetching={isFetching}
-                />
-              </ol>
+             { !!results.length && 
+               !!query.length && ( 
+                <ol className="books-grid">
+                  <BookList 
+                    onShelfChange={onShelfChange}
+                    books={results}
+                    isFetching={isFetching}
+                  />
+                </ol>
              )} 
 
              {/*  
