@@ -57,13 +57,39 @@ export default class Search extends Component {
             </div>
           </div>
           <div className="search-books-results">
-            <ol className="books-grid">
-              <BookList 
-                onShelfChange={onShelfChange}
-                books={results}
-                isFetching={isFetching}
-              />
-            </ol>
+
+             {/*  
+              If results were returned and something
+              was searched for show the following
+             */}
+
+             { !!results.length && ( 
+              <ol className="books-grid">
+                <BookList 
+                  onShelfChange={onShelfChange}
+                  books={results}
+                  isFetching={isFetching}
+                />
+              </ol>
+             )} 
+
+             {/*  
+              If no results were returned,
+              we are not currently searching
+              and text has been typed in the 
+              search box then display the following
+             */}
+            { !results.length && 
+              !isSearching &&
+              !!query.length && (
+                <div className="search-not-found">
+                  <h2>Could not find anything 😣</h2>
+                  <div>Try search for 
+                    <strong> Development</strong> or 
+                    <strong> iOS</strong>
+                    </div>
+                </div>
+            )}
           </div>
         </div>
       </div>

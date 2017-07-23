@@ -127,6 +127,11 @@ body {
   font-weight: 500;
 }
 
+.search-not-found {
+  text-align: center;
+  padding-top: 100px;
+}
+
 .close-search {
   display: block;
   cursor: pointer;
