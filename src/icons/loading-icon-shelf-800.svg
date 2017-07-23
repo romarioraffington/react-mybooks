@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="181px" height="289px" viewBox="0 0 181 289" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>loading-icon-shelf-800</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="loading-icon-shelf-800" fill="#D8D8D8">
+            <g id="Book-1-Copy-3">
+                <rect id="author" fill-opacity="0.4" x="0" y="274.772765" width="125.367408" height="14.063173"></rect>
+                <rect id="title" fill-opacity="0.55" x="0" y="255.300679" width="142.962834" height="14.063173"></rect>
+                <rect id="book-cover" fill-opacity="0.910000026" x="0" y="0" width="180.056706" height="235.828593" rx="5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

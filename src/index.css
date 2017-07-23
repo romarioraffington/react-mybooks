@@ -209,11 +209,33 @@ body {
   font-size: 0;
   background-image: url('./icons/loading-icon-shelf.svg');
   background-repeat: no-repeat;
-  background-size: 65%;
+  background-size: 39vw;
   background-position: center;
   width: 100%;
   height: 300px;
 }
+
+ @media(max-width: 1300px) {
+  .is-loading-shelf {
+    background-size: 35vw;
+    background-image: url('./icons/loading-icon-shelf-1300.svg');
+  }
+}
+
+
+@media(max-width: 800px) {
+  .is-loading-shelf {
+    background-size: 25vw;
+    background-image: url('./icons/loading-icon-shelf-800.svg');
+  }
+} 
+
+
+@media(max-width: 500px) {
+  .is-loading-shelf {
+    background-size: 30vw;
+  }
+} 
 
 .shelf-empty-message {
   padding: 60px 0px;  
