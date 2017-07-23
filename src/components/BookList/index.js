@@ -16,8 +16,8 @@ export default class BookList extends Component {
         { isFetching ? 
           <li className="is-loading-shelf">Loading</li> : (
             books.length > 0 ? (   
-              books.map(book => (
-                <li key={book.id}>
+              books.map((book, i) => (
+                <li key={i}>
                   <div className="book">
                     <div className="book-top">
                       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks && book.imageLinks.thumbnail}")` }}></div>
