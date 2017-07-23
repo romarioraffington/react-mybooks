@@ -276,7 +276,7 @@ body {
   animation-fill-mode: both;
 }
 
-.shelf-change-loader {
+.loading-bar {
   animation-name: horizontalProgressBar;
   animation-timing-function: ease-in; 
   background: rgba(130, 124, 118, 0.95);;

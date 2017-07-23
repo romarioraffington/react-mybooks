@@ -46,7 +46,7 @@ export default class Search extends Component {
         <div className="search-books">
           <div className="search-books-bar">
             <a className="close-search" onClick={() => onBackClick()}>Close</a>
-            <div className={isSearching ? "animated shelf-change-loader" : ""}></div>
+            <div className={isSearching ? "animated loading-bar" : ""}></div>
             <div className="search-books-input-wrapper">
               <input
                 type="text"
