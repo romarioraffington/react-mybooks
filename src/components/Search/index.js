@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // Our Dependencies
 import * as BooksAPI from '../../BooksAPI';
+import { getSuggetions } from '../../util/search';
 import BookList from '../BookList';
 
 export default class Search extends Component {
@@ -40,6 +41,7 @@ export default class Search extends Component {
   render() {
     const { query, results, isSearching } = this.state;
     const { onBackClick, onShelfChange, isFetching } = this.props;
+    const suggestions = getSuggetions();
 
     return (
       <div>
@@ -85,8 +87,8 @@ export default class Search extends Component {
                 <div className="search-not-found">
                   <h2>Could not find anything 😣</h2>
                   <div>Try search for 
-                    <strong> Development</strong> or 
-                    <strong> iOS</strong>
+                    <strong> {suggestions[0]} </strong> or 
+                    <strong> {suggestions[1]} </strong>
                     </div>
                 </div>
             )}
