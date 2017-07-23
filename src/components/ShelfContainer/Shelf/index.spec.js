@@ -36,7 +36,7 @@ describe('Shelf', () => {
   });
   
   it('should not render shelf change loader', () => {
-    const shelfChangeLoader = wrapper.find('.shelf-change-loader');
+    const shelfChangeLoader = wrapper.find('.loading-bar');
     expect(shelfChangeLoader).to.not.be.present()
   });
 
@@ -46,13 +46,13 @@ describe('Shelf', () => {
         title={title}
         books={books}
         isFetching={false}
-        isUpdatingShelf={false}
+        isUpdatingShelf={true}
         onShelfChange={onShelfChange}
       />
     )
 
     it('should render shelf change loader', () => {
-      const shelfChangeLoader = wrapper.find('.shelf-change-loader').first();
+      const shelfChangeLoader = wrapper.find('.loading-bar').first();
       expect(shelfChangeLoader).to.be.present()
     });
   })
