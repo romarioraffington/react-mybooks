@@ -15,12 +15,13 @@ export default class Search extends Component {
 
   state = {
     query: '',
+    isSearching: false,
     results: [],
   }
 
   updateQuery = (query) => {
-    // Update query state
-    this.setState({ query });
+    // Update query and isSearching state
+    this.setState({ query, isSearching: true });
 
     // Fetch books based on query
     BooksAPI.search(query.trim()).then(resp => {
@@ -32,12 +33,12 @@ export default class Search extends Component {
       if (Array.isArray(resp)) {
         results = resp;
       }
-      this.setState({ results });
+      this.setState({ results, isSearching: false });
     });
   }
 
   render() {
-    const { query, results } = this.state;
+    const { query, results, isSearching } = this.state;
     const { onBackClick, onShelfChange, isFetching } = this.props;
 
     return (
@@ -45,6 +46,7 @@ export default class Search extends Component {
         <div className="search-books">
           <div className="search-books-bar">
             <a className="close-search" onClick={() => onBackClick()}>Close</a>
+            <div className={isSearching ? "animated shelf-change-loader" : ""}></div>
             <div className="search-books-input-wrapper">
               <input
                 type="text"
