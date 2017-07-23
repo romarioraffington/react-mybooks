@@ -39,6 +39,10 @@ describe('Search', () => {
     expect(wrapper).to.have.state('query').equal('');
   });
 
+  it('should initalize isSearch state to false', () => {
+    expect(wrapper).to.have.state('isSearching').equal(false);
+  });
+
   it('should initialize results state to an empty array', () => {
     expect(wrapper).to.have.state('results').deep.equal([]);
   });
@@ -77,16 +81,80 @@ describe('Search', () => {
       expect(wrapper).to.have.state('results').deep.equal(books);
     });
 
-    describe('when the user clicks the back button', () => {
-      beforeEach(() => {
-        const backButton = wrapper.find('.close-search').first();
-        backButton.simulate('click');
-      });
-
-      it('should call `onBackClick` once', () => {
-        expect(onBackClick.mock.calls.length).to.equal(1)
-      });
+    it('should update the isSearching state to true',  () => {
+      expect(wrapper).to.have.state('isSearching').equal(true);
     });
 
+    it('should render the search not found message', () => {
+      const search = wrapper.find('.search-not-found');
+      expect(search).not.to.be.present();
+    });
+
+    it('should not render the book grid', () => {
+      const bookGrid = wrapper.find('.books-grid');
+      expect(bookGrid).to.be.present();
+    });
   });
+
+  describe('when the search field become empty', () => {
+    beforeEach(() => {
+      // Mock BooksAPI.search implementation
+      BooksAPI.search = jest.fn().mockImplementation(() => {
+        return new Promise((resolve, reject) => {
+          wrapper.setState({ results: [] });
+          resolve();
+        });
+      });
+
+      const input = wrapper.find('input').first();
+      input.simulate('change', {
+        target: { value: ''}
+      });
+    })
+
+    it('should set the results state to an empty array', () => {
+      expect(wrapper).to.have.state('results').deep.equal([]);
+    });
+
+    it('should not call the Book.search function',  () => {
+      expect(BooksAPI.search.mock.calls.length).to.equal(0);
+    });
+
+    it('should not update the isSearching state to true',  () => {
+      expect(wrapper).to.have.state('isSearching').equal(false);
+    })
+  });
+
+  describe('when results=[], isSeaching=false and query has a value', () => {
+    beforeEach(() => {
+      wrapper.setState({ 
+        results: [],
+        isSearching: false,
+        query: faker.lorem.word,
+      })
+    });
+
+
+    it('should render the search not found message', () => {
+      const search = wrapper.find('.search-not-found');
+      expect(search).to.be.present();
+    });
+
+    it('should not render the book grid', () => {
+      const bookGrid = wrapper.find('.books-grid');
+      expect(bookGrid).to.not.be.present();
+    });
+  });
+
+  describe('when the user clicks the back button', () => {
+    beforeEach(() => {
+      const backButton = wrapper.find('.close-search').first();
+      backButton.simulate('click');
+    });
+
+    it('should call `onBackClick` once', () => {
+      expect(onBackClick.mock.calls.length).to.equal(1)
+    });
+  });
+
 });
