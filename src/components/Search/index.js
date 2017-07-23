@@ -25,7 +25,7 @@ export default class Search extends Component {
 
     // If query is empty do
     // not send an API request
-    if (query.length > 0) {
+    if (query.trim().length > 0) {
       this.setState({ isSearching: true });
       
       BooksAPI.search(query).then(resp => {
