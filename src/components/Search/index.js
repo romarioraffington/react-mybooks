@@ -21,21 +21,30 @@ export default class Search extends Component {
   }
 
   updateQuery = (query) => {
-    // Update query and isSearching state
-    this.setState({ query, isSearching: true });
+    // Remove extra whitespace
+    query = query.replace(/\s+$/, '');
 
-    // Fetch books based on query
-    BooksAPI.search(query.trim()).then(resp => {
-      let results = [];
+    this.setState({ query });
 
-      // Only set state if resp is an array
-      // since the endpoint returns undefined 
-      // and an error object as well
-      if (Array.isArray(resp)) {
-        results = resp;
-      }
-      this.setState({ results, isSearching: false });
-    });
+    // If query is empty do
+    // not send an API request
+    if (query.length > 0) {
+      this.setState({ isSearching: true });
+      
+      BooksAPI.search(query).then(resp => {
+        let results = [];
+    
+        // Only set state if resp is an array
+        // since the endpoint returns undefined 
+        // and an error object as well
+        if (Array.isArray(resp)) {
+          results = resp;
+        }
+        this.setState({ results, isSearching: false });
+      })
+    } else {
+      this.setState({ results: [] });
+    }
   }
 
   render() {
