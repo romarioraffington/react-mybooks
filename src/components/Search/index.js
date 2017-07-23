@@ -21,9 +21,6 @@ export default class Search extends Component {
   }
 
   updateQuery = (query) => {
-    // Remove extra whitespace
-    query = query.replace(/\s+$/, '');
-
     this.setState({ query });
 
     // If query is empty do
