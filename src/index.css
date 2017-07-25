@@ -254,7 +254,7 @@ body {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
   cursor: pointer;
-  transition: 0.4s ease-out;
+  transition: 0.4s transform ease-out;
 }
 
 .book-cover:hover {
