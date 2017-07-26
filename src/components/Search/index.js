@@ -1,6 +1,7 @@
 // External Dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 // Our Dependencies
 import * as BooksAPI from '../../BooksAPI';
@@ -12,12 +13,25 @@ export default class Search extends Component {
     onBackClick: PropTypes.func.isRequired,
     isFetching: PropTypes.bool.isRequired,
     onShelfChange: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired,
   }
 
   state = {
     query: '',
     isSearching: false,
     results: [],
+  }
+
+  componentWillReceiveProps =({ books }) => {
+    const clonedResults = _.cloneDeep(this.state.results);
+    books.forEach(b => {
+      clonedResults.forEach((r, i, arr) => {
+        if (r.id === b.id) {
+          arr[i].shelf = b.shelf;
+        }
+      })
+    });
+    this.setState({ results: clonedResults });
   }
 
   updateQuery = (query) => {
@@ -35,6 +49,16 @@ export default class Search extends Component {
         // since the endpoint returns undefined 
         // and an error object as well
         if (Array.isArray(resp)) {
+          const { books } = this.props;
+
+          // istanbul ignore next
+          books.forEach(b => {
+            resp.forEach((r, i, arr) => {
+              if (r.id === b.id) {
+                arr[i].shelf = b.shelf;
+              }
+            })
+          });
           results = resp;
         }
         this.setState({ results, isSearching: false });

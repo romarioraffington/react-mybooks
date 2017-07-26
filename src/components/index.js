@@ -34,7 +34,7 @@ export default class App extends Component {
         const isPresent = books.find(b => (
           b.id === book.id
         ));
-
+        
         // If book was previously selected
         // find book and only change the shelf
         if (!! isPresent) {
@@ -85,6 +85,7 @@ export default class App extends Component {
         )} />
         <Route path='/search' render={({ history }) => (
           <Search 
+            books={books}
             onShelfChange={this.shelfChange}
             isFetching={isFetching}
             onBackClick={() => history.push('/') }

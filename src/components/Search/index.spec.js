@@ -1,30 +1,32 @@
 // External Dependencies
 import React from 'react';
 import faker from 'faker';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 // Our Dependencies
 import Search from './index';
 import * as BooksAPI from '../../BooksAPI';
 import { expect } from '../../util/chai';
-import { generateBookList } from '../../util/testData';
+import { generateBookList, getRandomShelf } from '../../util/testData';
 
 // Mock API call
 jest.mock('../../BooksAPI');
 
 describe('Search', () => {
-  let wrapper;
-  const books = generateBookList(),
-    onBackClick = jest.fn(),
+  let wrapper, books;
+  const onBackClick = jest.fn(),
     onShelfChange = jest.fn();
 
 
   beforeEach(() => {
-    wrapper = shallow(
+    books = generateBookList();
+
+    wrapper = mount(
       <Search
         onBackClick={onBackClick}
         isFetching={false}
         onShelfChange={onShelfChange}
+        books={books}
       />
     )
   });
@@ -156,5 +158,19 @@ describe('Search', () => {
       expect(onBackClick.mock.calls.length).to.equal(1)
     });
   });
+
+  describe('when the a book\'s shelf status is updated', () => {  
+    beforeEach(() => {
+      books[0].shelf = getRandomShelf();
+      wrapper.setProps({ books });
+    });
+
+    it('should update the books props', () => {
+      expect(wrapper).to.have.prop('books', books)
+    });
+
+    // TODO: Figure out a way to test the updated state
+    // Currently wrapper.state().results returns []
+  })
 
 });
