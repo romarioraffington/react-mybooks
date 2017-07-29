@@ -102,20 +102,13 @@ export default class App extends Component {
           />
         )}
         />
-        <Route path='/book/:id' render={({ match }) => {     
-          const id = match.params.id;
-          const book = books.filter(b => b.id === id);
-
-          return (
-            !!book.length &&  (
-              <BookDetail 
-                book={book[0]}
-                isUpdatingShelf={isUpdatingShelf}
-                onShelfChange={this.shelfChange} 
-              />
-            ) 
-          )
-        }} 
+        <Route path='/book/:id' render={({ match }) => (   
+          <BookDetail 
+            bookId={match.params.id}
+            isUpdatingShelf={isUpdatingShelf}
+            onShelfChange={this.shelfChange} 
+          />    
+        )}
         />  
       </div>
     )
