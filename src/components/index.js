@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 
 // Our Dependencies
 import ShelfContainer from './ShelfContainer';
+import BookDetail from './BookDetail';
 import Search from './Search';
 import * as BooksAPI from '../BooksAPI';
 
@@ -75,7 +76,11 @@ export default class App extends Component {
               books={books}
               isFetching={isFetching}
               isUpdatingShelf={isUpdatingShelf}
-              onShelfChange={this.shelfChange} />
+              onShelfChange={this.shelfChange} 
+              onBookClick={(book) => (
+                history.push(`book/${book.id}`)
+              )}
+              />
             <div className="open-search">
               <a onClick={() => history.push('/search')}>
                 Add a book
@@ -89,9 +94,29 @@ export default class App extends Component {
             onShelfChange={this.shelfChange}
             isFetching={isFetching}
             onBackClick={() => history.push('/') }
+            onBookClick={(book) => (
+              history.push(`book/${book.id}`, {
+                book
+              })
+            )}
           />
         )}
         />
+        <Route path='/book/:id' render={({ match }) => {     
+          const id = match.params.id;
+          const book = books.filter(b => b.id === id);
+
+          return (
+            !!book.length &&  (
+              <BookDetail 
+                book={book[0]}
+                isUpdatingShelf={isUpdatingShelf}
+                onShelfChange={this.shelfChange} 
+              />
+            ) 
+          )
+        }} 
+        />  
       </div>
     )
   }

@@ -301,3 +301,162 @@ body {
   75%  {width: 83%;}
   100% {width:100%;}
 }
+
+/* Book Detail  */
+
+.book-detail {
+  overflow-y: hidden;
+}
+
+.book-detail-book {
+  margin-bottom: 30px;
+}
+
+.book-detail-container {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 750px;
+  margin: 200px auto 0px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 50px 35px;
+  justify-content: space-around;
+  box-shadow: 0px 0px 40px 0 rgba(0, 0, 0, 0.12);
+}
+
+.top-container-fixed-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding-right: 8%;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(213, 216, 223, 0.73);
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+}
+
+.book-detail-description {
+  max-width: 450px;
+  text-align: justify;
+  position: relative;
+  height: 8.6em;
+  overflow-y: hidden;
+}
+
+.book-detail-description:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+
+.book-detail-meta a,
+.book-detail-meta span {
+  text-transform: uppercase;
+  font-size: 0.73em;
+  color: #939aa0;
+  margin-left: 20px;
+}
+
+.book-detail-meta span:nth-child(1) {
+  margin-left: 0px;
+}
+
+/* Book Detail Shelf Status Buttons */
+
+.book-detail-shelf-status {
+  list-style-type: none;
+  margin: 25px 0 0 0;
+  display: block;
+}
+
+.book-detail-shelf-status li {
+  float: left;
+  margin: 0 20px 0 0;
+  width: 100px;
+  text-align: center;
+  height: 40px;
+  color: #939aa0;
+  position: relative;
+}
+
+@media(max-width: 550px) {
+  .book-detail-shelf-status li {
+    text-align: center;
+    width: 200px;
+    margin-bottom: 15px;
+    margin-left: 10%;
+  }
+}
+
+.book-detail-shelf-status label:hover {
+  background: #999b9c;
+  color: #FFF;
+}
+
+.book-detail-shelf-status label {
+  padding: 5px;
+  border: 1px solid #a7adb2;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 90;
+}
+
+.book-detail-shelf-status label, 
+.book-detail-shelf-status input {
+ display: block;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+}
+
+.book-detail-shelf-status input[type="radio"] {
+ opacity :0.01;
+ z-index: 100;
+}
+
+.book-detail-shelf-status input[type="radio"]:checked + label {
+  background: rgba(46, 61, 73, 0.96);
+  color: #FFF;
+  border: 1px solid rgba(46, 61, 73, 0.96);
+}
+
+.book-detail-container .book-cover:hover {
+  transform: none;
+  cursor: default;
+}
+
+
+/* Top Container */
+
+.back-button {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url('./icons/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  font-size: 0;
+  opacity: 0.4;
+}
+
+.top-container-text {
+  width: 100%;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+.top-container-text span {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin-left: 6px;
+}

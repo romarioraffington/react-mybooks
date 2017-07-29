@@ -6,7 +6,14 @@ import PropTypes from 'prop-types';
 import BookList from '../../BookList';
 
 const Shelf = (props) => {
-  const { title, books, isFetching, isUpdatingShelf, onShelfChange } = props;
+  const { title, 
+          books, 
+          isFetching, 
+          isUpdatingShelf, 
+          onShelfChange, 
+          onBookClick,
+        } = props;
+        
   return (
     <div>
       <div className="bookshelf">
@@ -17,6 +24,7 @@ const Shelf = (props) => {
             onShelfChange={onShelfChange}
             books={books}
             isFetching={isFetching}
+            onBookClick={onBookClick}
           />
         </div>
       </div>
@@ -30,6 +38,7 @@ Shelf.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   isUpdatingShelf: PropTypes.bool.isRequired,
   onShelfChange: PropTypes.func.isRequired,
+  onBookClick: PropTypes.func.isRequired
 }
 
 export default Shelf;

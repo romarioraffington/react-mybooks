@@ -6,7 +6,13 @@ import PropTypes from 'prop-types';
 import Shelf from './Shelf';
 
 const ShelfContainer = (props) => {
-  const { books, isFetching, isUpdatingShelf, onShelfChange } = props;
+  const { books, 
+          isFetching,
+          isUpdatingShelf,
+          onShelfChange, 
+          onBookClick, 
+        } = props;
+
   return (
     <div className="list-books-content">
       <div>
@@ -16,6 +22,7 @@ const ShelfContainer = (props) => {
           books={books.filter(b => b.shelf === 'currentlyReading')}
           isFetching={isFetching}
           isUpdatingShelf={isUpdatingShelf}
+          onBookClick={onBookClick}
         />
         <Shelf
           title='Want to Read'
@@ -23,6 +30,7 @@ const ShelfContainer = (props) => {
           books={books.filter(b => b.shelf === 'wantToRead')}
           isFetching={isFetching}
           isUpdatingShelf={isUpdatingShelf}
+          onBookClick={onBookClick}
         />
         <Shelf
           title='Read'
@@ -30,6 +38,7 @@ const ShelfContainer = (props) => {
           books={books.filter(b => b.shelf === 'read')}
           isFetching={isFetching}
           isUpdatingShelf={isUpdatingShelf}
+          onBookClick={onBookClick}
         />
       </div>
     </div>
@@ -41,6 +50,7 @@ ShelfContainer.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   isUpdatingShelf: PropTypes.bool.isRequired,
   onShelfChange: PropTypes.func.isRequired,
+  onBookClick: PropTypes.func.isRequired,
 }
 
 export default ShelfContainer;
