@@ -11,7 +11,7 @@ import { getBook, getRandomShelf } from '../../util/testData';
 // mock API call
 jest.mock('../../BooksAPI');
 
-describe.only('BookDetail', () => {
+describe('BookDetail', () => {
   let wrapper; 
   const book = getBook(),
   isUpdatingShelf=false,
