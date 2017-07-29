@@ -12,7 +12,8 @@ describe('Shelf', () => {
   let wrapper;
   const title = faker.lorem.word(),
     books = generateBookList(),
-    onShelfChange = jest.fn();
+    onShelfChange = jest.fn(),
+    onBookClick = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
@@ -22,12 +23,14 @@ describe('Shelf', () => {
         isFetching={false}
         isUpdatingShelf={false}
         onShelfChange={onShelfChange}
+        onBookClick={onBookClick}
       />
     )
   });
 
   afterEach(() => {
     onShelfChange.mockClear();
+    onBookClick.mockClear();
   });
 
   it('should set the correct shelf title', () => {
@@ -41,16 +44,18 @@ describe('Shelf', () => {
   });
 
   describe('when updating a books shelf status', () => {
-    wrapper = shallow(
-      <Shelf
-        title={title}
-        books={books}
-        isFetching={false}
-        isUpdatingShelf={true}
-        onShelfChange={onShelfChange}
-      />
-    )
 
+    beforeEach(() => {
+      wrapper.setProps({ 
+        title,
+        books,
+        isFetching: false,
+        isUpdatingShelf: true,
+        onShelfChange: onShelfChange,
+        onBookClick: onBookClick,
+      });
+    })
+     
     it('should render shelf change loader', () => {
       const shelfChangeLoader = wrapper.find('.loading-bar').first();
       expect(shelfChangeLoader).to.be.present()
