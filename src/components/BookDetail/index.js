@@ -23,6 +23,7 @@ export default class BookDetail extends Component {
     BooksAPI.get(this.props.bookId)
   )
 
+  // istanbul ignore next
   componentDidMount() {
     this.getBook(this.props.bookId).then(book =>
       this.setState({ book, isLoading: false })
