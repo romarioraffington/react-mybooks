@@ -14,6 +14,7 @@ export default class Search extends Component {
     isFetching: PropTypes.bool.isRequired,
     onShelfChange: PropTypes.func.isRequired,
     books: PropTypes.array.isRequired,
+    onBookClick: PropTypes.func.isRequired,
   }
 
   state = {
@@ -70,7 +71,7 @@ export default class Search extends Component {
 
   render() {
     const { query, results, isSearching } = this.state;
-    const { onBackClick, onShelfChange, isFetching } = this.props;
+    const { onBackClick, onShelfChange, isFetching, onBookClick } = this.props;
     const suggestions = getSuggetions();
 
     return (
@@ -102,6 +103,7 @@ export default class Search extends Component {
                     onShelfChange={onShelfChange}
                     books={results}
                     isFetching={isFetching}
+                    onBookClick={onBookClick}
                   />
                 </ol>
              )} 
