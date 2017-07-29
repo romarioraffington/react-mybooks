@@ -81,19 +81,19 @@ export default class BookDetails extends Component {
               <div className="book-detail-meta">
                 { book.pageCount &&
                   <span> Page Count:
-                    <strong>{`${book.pageCount}`} </strong>
+                    <strong>{` ${book.pageCount}`} </strong>
                   </span>
                 }
 
                 { book.ratingsCount &&
                   <span> Rating:
-                    <strong>{`${book.ratingsCount}`}</strong>
+                    <strong>{` ${book.ratingsCount}`}</strong>
                   </span>
                 }
 
                 { book.categories &&
                   <span> Category:
-                    <strong>{`${book.categories.join(', ')}`}</strong>
+                    <strong>{` ${book.categories.join(', ')}`}</strong>
                   </span>
                 }
 

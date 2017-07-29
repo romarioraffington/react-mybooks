@@ -324,6 +324,13 @@ body {
   box-shadow: 0px 0px 40px 0 rgba(0, 0, 0, 0.12);
 }
 
+
+@media(max-width: 550px) {
+  .book-detail-container {
+    text-align: center;
+  }
+}
+
 .top-container-fixed-bar {
   position: fixed;
   width: 100%;
@@ -386,10 +393,9 @@ body {
 
 @media(max-width: 550px) {
   .book-detail-shelf-status li {
-    text-align: center;
     width: 200px;
     margin-bottom: 15px;
-    margin-left: 10%;
+    margin-left: 9%;
   }
 }
 
