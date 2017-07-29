@@ -15,7 +15,8 @@ jest.mock('../../BooksAPI');
 describe('Search', () => {
   let wrapper, books;
   const onBackClick = jest.fn(),
-    onShelfChange = jest.fn();
+    onShelfChange = jest.fn(),
+    onBookClick = jest.fn();
 
 
   beforeEach(() => {
@@ -27,6 +28,7 @@ describe('Search', () => {
         isFetching={false}
         onShelfChange={onShelfChange}
         books={books}
+        onBookClick={onBookClick}
       />
     )
   });
@@ -35,6 +37,7 @@ describe('Search', () => {
     onBackClick.mockClear();
     onShelfChange.mockClear();
     BooksAPI.search.mockClear();
+    onBookClick.mockClear();
   });
 
   it('should have an empty query state', () => {
