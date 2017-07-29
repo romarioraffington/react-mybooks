@@ -54,10 +54,12 @@ describe('Book', () => {
   })
 
   describe('when user selects a different shelf option', () => {
-    const value = getRandomShelf();
+    let value;
 
     beforeEach(() => {
+      value = getRandomShelf();
       const select = wrapper.find('select').first();
+
       select.simulate('change', {
         target: { value }
       })
