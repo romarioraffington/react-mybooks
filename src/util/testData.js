@@ -17,7 +17,7 @@ export const getBook = () => {
       thumbnail: faker.image.imageUrl(),
     }, 
     title: faker.lorem.word(),
-    authors: faker.name.findName(),
+    authors: [faker.name.findName()],
     shelf: getRandomShelf(),
   }
 }
