@@ -11,7 +11,8 @@ import { generateBookList } from '../../util/testData';
 describe('ShelfContainer', () => {
   let wrapper;
   const books = generateBookList(),
-    onShelfChange = jest.fn();
+    onShelfChange = jest.fn(),
+    onBookClick = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
@@ -20,12 +21,14 @@ describe('ShelfContainer', () => {
         isFetching={false}
         isUpdatingShelf={false}
         onShelfChange={onShelfChange}
+        onBookClick={onBookClick}
       />
     )
   });
 
   afterEach(() => {
     onShelfChange.mockClear();
+    onBookClick.mockClear();
   });
 
   it('should render without any errors', () => {
