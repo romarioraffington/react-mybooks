@@ -26,7 +26,7 @@ const Book = ({ book, onShelfChange, onBookClick }) => (
       component is being rendered from the Search
       or Home Screen. Therefore the code below 
       will prevent the title and author from 
-      being displayed on other screens
+      being displayed on other screens e.g Book Detail
     */}
     { onBookClick && (
       <div>
