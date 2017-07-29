@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Book from '../Book';
 import * as BooksAPI from '../../BooksAPI'
 
-export default class BookDetails extends Component {
+export default class BookDetail extends Component {
   static propTypes = {
     bookId: PropTypes.string.isRequired,
     isUpdatingShelf: PropTypes.bool.isRequired,
