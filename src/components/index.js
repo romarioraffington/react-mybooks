@@ -61,7 +61,7 @@ export default class App extends Component {
 
   render() {
     const { books, isFetching, isUpdatingShelf } = this.state;
-      // istanbul ignore next
+    // istanbul ignore next
     return (
       <div className="app">
         <Route exact path='/' render={({ history }) => (
@@ -82,7 +82,10 @@ export default class App extends Component {
               )}
               />
             <div className="open-search">
-              <a onClick={() => history.push('/search')}>
+              <a onClick={() => {
+                localStorage.lastQuery = '';
+                history.push('/search')}
+              }>
                 Add a book
               </a>
             </div>

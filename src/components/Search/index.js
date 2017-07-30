@@ -22,6 +22,14 @@ export default class Search extends Component {
     isSearching: false,
     results: [],
   }
+  
+  // istanbul ignore next
+  componentDidMount() {
+    const { lastQuery } = localStorage;
+    if (lastQuery) {
+      this.updateQuery(lastQuery);
+    }
+  }
 
   componentWillReceiveProps =({ books }) => {
     const clonedResults = _.cloneDeep(this.state.results);
@@ -37,6 +45,11 @@ export default class Search extends Component {
 
   updateQuery = (query) => {
     this.setState({ query });
+
+    // Store query so it can be retrieved
+    // when the back arrow is clicked
+    // from the BookDetail screen
+    localStorage.lastQuery = query;
 
     // If query is empty do
     // not send an API request
