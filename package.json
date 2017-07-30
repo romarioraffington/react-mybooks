@@ -12,6 +12,7 @@
     "coveralls": "^2.13.1",
     "enzyme": "^2.9.1",
     "faker": "^4.1.0",
+    "history": "^4.6.3",
     "react-scripts": "0.9.5",
     "react-test-renderer": "^15.6.1"
   },
