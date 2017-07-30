@@ -117,7 +117,10 @@ describe('BookDetail', () => {
               });
             });
 
-            wrapper.setProps({ bookId: book.id });
+            wrapper.setProps({ 
+              bookId: book.id,
+              isUpdatingShelf: true,
+            });
           });
 
           it('should call the `BooksAPI.get` function once', () => {
@@ -127,6 +130,11 @@ describe('BookDetail', () => {
           it('should call `BooksAPI.get` with the correct bookId param', () => {
             expect(BooksAPI.get.mock.calls[0][0]).to.equal(book.id);
           });
+
+          it('should render the animated loading bar', () => {
+            const loadingBar = wrapper.find('.loading-bar').first();
+            expect(loadingBar).to.be.present();
+          })
         });
 
       });
