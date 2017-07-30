@@ -63,7 +63,7 @@ export default class BookDetail extends Component {
                 <div onClick={history.goBack} className="back-button"> Close </div>
                 <p className="top-container-text">
                   {book.title}
-                  <span>by {book.authors.join(', ')}</span>
+                  <span>by {book.authors && book.authors.join(', ')}</span>
                 </p>
                 <div className={isUpdatingShelf ? "animated loading-bar" : ""}></div>
               </div>
