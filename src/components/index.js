@@ -95,9 +95,7 @@ export default class App extends Component {
             isFetching={isFetching}
             onBackClick={() => history.push('/') }
             onBookClick={(book) => (
-              history.push(`book/${book.id}`, {
-                book
-              })
+              history.push(`book/${book.id}`)
             )}
           />
         )}
