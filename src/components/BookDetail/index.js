@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // Our Dependencies
 import Book from '../Book';
+import { track } from '../../util/analytics';
 import * as BooksAPI from '../../BooksAPI'
 
 export default class BookDetail extends Component {
@@ -28,6 +29,7 @@ export default class BookDetail extends Component {
     this.getBook(this.props.bookId).then(book =>
       this.setState({ book, isLoading: false })
     )
+    track(window);
   }
 
   componentWillReceiveProps(nextProps) {

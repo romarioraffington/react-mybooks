@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 // Our Dependencies
+import { track } from '../util/analytics';
+import * as BooksAPI from '../BooksAPI';
+
+// Components
 import ShelfContainer from './ShelfContainer';
 import BookDetail from './BookDetail';
 import Search from './Search';
-import * as BooksAPI from '../BooksAPI';
 
 export default class App extends Component {
   state = {
@@ -19,6 +22,7 @@ export default class App extends Component {
     BooksAPI.getAll().then(books => {
       this.setState({ books, isFetching: false });
     });
+    track(window);
   }
 
   

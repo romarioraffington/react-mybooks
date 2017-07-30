@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 // Our Dependencies
+import { track } from '../../util/analytics';
 import * as BooksAPI from '../../BooksAPI';
 import { getSuggetions } from '../../util/search';
+
+// Our Components
 import BookList from '../BookList';
 
 export default class Search extends Component {
@@ -22,13 +25,14 @@ export default class Search extends Component {
     isSearching: false,
     results: [],
   }
-  
+
   // istanbul ignore next
   componentDidMount() {
     const { lastQuery } = localStorage;
     if (lastQuery) {
       this.updateQuery(lastQuery);
     }
+    track(window);
   }
 
   componentWillReceiveProps =({ books }) => {
