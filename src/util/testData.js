@@ -19,6 +19,10 @@ export const getBook = () => {
     title: faker.lorem.word(),
     authors: [faker.name.findName()],
     shelf: getRandomShelf(),
+    pageCount: faker.random.number({ min: 1 , max: 200 }),
+    ratingsCount: faker.random.number({ min: 1, max: 5}),
+    categories: [faker.lorem.word()],
+    previewLink: faker.image.imageUrl(),
   }
 }
 
