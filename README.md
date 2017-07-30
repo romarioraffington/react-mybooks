@@ -5,6 +5,8 @@
  
  View the live app [here](https://react-mybooks.herokuapp.com) :bowtie: !
 
+ [![](.README/react-myreads.gif)](https://react-mybooks.herokuapp.com)
+
 ## Getting Started
 
 ```shell
