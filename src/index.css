@@ -443,6 +443,7 @@ body {
 
 .back-button {
   display: block;
+  cursor: pointer;
   width: 60px;
   height: 60px;
   background-image: url('./icons/arrow-back.svg');
