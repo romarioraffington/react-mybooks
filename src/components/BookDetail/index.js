@@ -1,7 +1,6 @@
 // External Dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 // Our Dependencies
 import Book from '../Book';
@@ -12,6 +11,7 @@ export default class BookDetail extends Component {
     bookId: PropTypes.string.isRequired,
     isUpdatingShelf: PropTypes.bool.isRequired,
     onShelfChange: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
   }
 
   state = {
@@ -39,7 +39,7 @@ export default class BookDetail extends Component {
 
   render() {
     const { book, isLoading} = this.state;
-    const { onShelfChange, isUpdatingShelf } = this.props;
+    const { history, onShelfChange, isUpdatingShelf } = this.props;
     
     return (
       <div className="book-detail">
@@ -47,7 +47,7 @@ export default class BookDetail extends Component {
         { isLoading && (
           <div className="top-container">
             <div className="top-container-fixed-bar">
-              <Link to="/" className="back-button"> Close </Link>
+              <div onClick={history.goBack} className="back-button"> Close </div>
               <p className="top-container-text">
                 Loading...
               </p>
@@ -60,7 +60,7 @@ export default class BookDetail extends Component {
           <div>
             <div className="top-container">
               <div className="top-container-fixed-bar">
-                <Link to="/" className="back-button"> Close </Link>
+                <div onClick={history.goBack} className="back-button"> Close </div>
                 <p className="top-container-text">
                   {book.title}
                   <span>by {book.authors.join(', ')}</span>

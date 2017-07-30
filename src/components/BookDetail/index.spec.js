@@ -1,6 +1,7 @@
 // External Depedencies
 import React from 'react';
 import { shallow } from 'enzyme';
+import createBrowserHistory from 'history/createBrowserHistory'
 
 // Our Dependencies
 import BookDetail from './index';
@@ -23,6 +24,7 @@ describe('BookDetail', () => {
           bookId={book.id}
           isUpdatingShelf={isUpdatingShelf}
           onShelfChange={onShelfChange}
+          history={createBrowserHistory()}
         />
       )
     });

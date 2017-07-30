@@ -102,9 +102,10 @@ export default class App extends Component {
           />
         )}
         />
-        <Route path='/book/:id' render={({ match }) => (   
+        <Route path='/book/:id' render={({ history, match }) => (   
           <BookDetail 
             bookId={match.params.id}
+            history={history}
             isUpdatingShelf={isUpdatingShelf}
             onShelfChange={this.shelfChange} 
           />    
