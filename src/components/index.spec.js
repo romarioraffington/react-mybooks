@@ -9,7 +9,8 @@ import * as BooksAPI from '../BooksAPI';
 import { expect } from '../util/chai';
 import { generateBookList } from '../util/testData';
 
-// Mock API calls
+// Mocks
+jest.mock("react-ga");
 jest.mock('../BooksAPI');
 
 describe('ShelfContainer',  () => {
