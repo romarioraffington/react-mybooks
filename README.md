@@ -41,4 +41,4 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 Feel free to submit a pull requests! For specifics on how to contribute to this project, check out the  [contributing file](CONTRIBUTING.md).
 
 ## License
-Contacts is released under the [MIT License](LICENSE).
+My Reads is released under the [MIT License](LICENSE).
