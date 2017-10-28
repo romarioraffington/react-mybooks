@@ -8,7 +8,7 @@
 <div align="center">
 
   <a href="https://circleci.com/gh/romarioraffington/react-mybooks">
-    <img src="https://circleci.com/gh/romarioraffington/react-mybooks.svg?style=flat-square" alt="Build Status" />
+    <img src="https://circleci.com/gh/romarioraffington/react-mybooks.svg?style=svg" alt="Build Status" />
   </a>
 
   <a href="https://coveralls.io/github/romarioraffington/react-mybooks">
