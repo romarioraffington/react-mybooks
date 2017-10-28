@@ -2,8 +2,10 @@ version: 2
 jobs:
   build:
     working_directory: ~/react-mybooks
+    
     docker:
       - image: circleci/node:6.11.0
+
     steps:
       - checkout
 
@@ -19,10 +21,11 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
     test:
         docker:
-        - image: circleci/node:6.11.0
+            - image: circleci/node:6.11.0
         steps:
             - checkout
             - run:
