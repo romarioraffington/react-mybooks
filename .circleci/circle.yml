@@ -2,32 +2,27 @@ version: 2
 jobs:
   build:
     working_directory: ~/react-mybooks
-    
-  docker:
-    - image: circleci/node:6.11.0
-
+    docker:
+      - image: circleci/node:6.11.0
     steps:
       - checkout
-
-    dependencies:
-      override:
-        - yarn
-
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn install
-
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: npm-install
+          command: npm install
       - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-      
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
     test:
-      override:
-        - yarn test
-        - yarn coverage
+        docker:
+        - image:  circleci/node:6.11.0
+        steps:
+            - checkout
+            - run:
+                name: test-and-coverage
+                command: npm run coverage
+            - store_artifacts:
+                path: coverage
+                prefix: coverage
