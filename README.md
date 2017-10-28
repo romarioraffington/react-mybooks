@@ -1,12 +1,31 @@
-# MyReads :books:  [![CircleCI](https://circleci.com/gh/romarioraffington/react-mybooks.svg?style=svg)](https://circleci.com/gh/romarioraffington/react-mybooks) [![Coverage Status](https://coveralls.io/repos/github/romarioraffington/react-mybooks/badge.svg)](https://coveralls.io/github/romarioraffington/react-mybooks)
+<br />
 
+<h1 align="center">MyReads :books:</h1>
+<div align="center"> MyReads is a bookshelf app that allows users to select and categorize books they have read, are currently reading, or want to read. Users can also search for books and add books to their bookshelf. The project is build using React and data is persisted by the [backend server](https://reactnd-books-api.udacity.com).</div>
 
- MyReads is a bookshelf app that allows users to select and categorize books they have read, are currently reading, or want to read. Users can also search for books and add books to their bookshelf. The project is build using React and data is persisted by the [backend server](https://reactnd-books-api.udacity.com).
- 
- View the live app [here](https://react-mybooks.herokuapp.com) :bowtie: !
+<br />
 
- [![](.README/react-myreads.gif)](https://react-mybooks.herokuapp.com)
+<div align="center">
 
+  <a href="https://circleci.com/gh/romarioraffington/react-mybooks">
+    <img src="https://circleci.com/gh/romarioraffington/react-mybooks.svg?style=svg" alt="Build Status" />
+  </a>
+
+  <a href="https://coveralls.io/github/romarioraffington/react-mybooks">
+    <img src="https://coveralls.io/repos/github/romarioraffington/react-mybooks/badge.svg" alt="Coverage Status" />
+  </a>
+
+  <br />
+
+  View the live app [here](https://react-mybooks.herokuapp.com) :bowtie: !
+  
+  <br />
+
+  [![](.README/react-myreads.gif)](https://react-mybooks.herokuapp.com)
+
+  <br />
+
+</div>
 ## Getting Started
 
 ```shell
