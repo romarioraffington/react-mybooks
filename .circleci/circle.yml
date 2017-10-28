@@ -6,26 +6,28 @@ jobs:
       - image: circleci/node:6.11.0
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
+
+      # Download and cache dependencies
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: npm-install
-          command: npm install
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn install
+
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ./node_modules
+            - node_modules
+          key: dependency-cache-{{ checksum "package.json" }}
     test:
         docker:
-        - image:  circleci/node:6.11.0
+        - image: circleci/node:6.11.0
         steps:
             - checkout
             - run:
-                name: test-and-coverage
-                command: npm run coverage
+                command: yarn test
+                command: yarn coverage
             - store_artifacts:
                 path: coverage
                 prefix: coverage
