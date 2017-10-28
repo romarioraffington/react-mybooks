@@ -1,7 +1,7 @@
 <br />
 
-<h1 align="center">MyReads :books:</h1>
-<div align="center"> MyReads is a bookshelf app that allows users to select and categorize books they have read, are currently reading, or want to read. Users can also search for books and add books to their bookshelf. The project is build using React and data is persisted by the <a href="https://reactnd-books-api.udacity.com)">backend server</a></div>
+<h1 align="center">MyBooks :books:</h1>
+<div align="center"> MyBooks is a bookshelf app that allows users to select and categorize books they have read, are currently reading, or want to read. Users can also search for books and add books to their bookshelf. The project is build using React and data is persisted by the <a href="https://reactnd-books-api.udacity.com)">backend server</a></div>
 
 <br />
 
